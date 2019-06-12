@@ -1,16 +1,17 @@
 ##Assuming data has been unzipped to home directory drive, retrieve data labels
 features <- read.table("./UCI HAR Dataset/features.txt",header=FALSE,sep="")
+features$col <- sub("\\(\\)","",features[,2])
 activities <- read.table("./UCI HAR Dataset/activity_labels.txt",header=FALSE,sep="",col.names=c("activitycode","activity"))
 
 ##Import test data
 subject_test <- read.table("./UCI HAR Dataset/test/subject_test.txt",header=FALSE,sep="",col.names=c("subject"))
-X_test <- read.table("./UCI HAR Dataset/test/X_test.txt",header=FALSE,sep="",col.names=features[,2]) ##Appropriately labels the data set with descriptive variable names.
+X_test <- read.table("./UCI HAR Dataset/test/X_test.txt",header=FALSE,sep="",col.names=features$col) ##Appropriately labels the data set with descriptive variable names.
 y_test <- read.table("./UCI HAR Dataset/test/y_test.txt",header=FALSE,sep="",col.names=c("activitycode"))
 y_test <- activities[y_test[,1],] ##Uses descriptive activity names to name the activities in the data set
 
 ##Import training data
 subject_train <- read.table("./UCI HAR Dataset/train/subject_train.txt",header=FALSE,sep="",col.names=c("subject"))
-X_train <- read.table("./UCI HAR Dataset/train/X_train.txt",header=FALSE,sep="",col.names=features[,2]) ##Appropriately labels the data set with descriptive variable names.
+X_train <- read.table("./UCI HAR Dataset/train/X_train.txt",header=FALSE,sep="",col.names=features$col) ##Appropriately labels the data set with descriptive variable names.
 y_train <- read.table("./UCI HAR Dataset/train/y_train.txt",header=FALSE,sep="",col.names=c("activitycode"))
 y_train <- activities[y_train[,1],] ##Uses descriptive activity names to name the activities in the data set
 
