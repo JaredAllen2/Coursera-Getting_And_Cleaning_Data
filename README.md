@@ -17,22 +17,22 @@ This script requires the user to have the unzipped folder "UCI HAR Dataset" in t
 
 ##Summary of script by lines:
 
-1:3 - extract variable and activities labels from relevant files (features.txt & activity_labels.txt respectively)
+4:6 - extract variable and activities labels from relevant files (features.txt & activity_labels.txt respectively)
 
-5:8 - Import test data .txt files into working memory using variable names from features.txt
+9:11 - Import test data .txt files into working memory using variable names from features.txt
 
-9 - Decode activity codes in y_test using labels extracted from activity_labels
+12 - Decode activity codes in y_test using labels extracted from activity_labels
 
-11:14 - Import train data .txt files into working memory using variable names from features.txt
+15:17 - Import train data .txt files into working memory using variable names from features.txt
 
-15 - Decode activity codes in y_train using labels extracted from activity_labels
+18 - Decode activity codes in y_train using labels extracted from activity_labels
 
-17:19 - use grep function to extract only those variables with mean and std data in both X_test and X_train
+21:22 - use grep function to extract only those variables with mean and std data in both X_test and X_train
 
-21:24 - cbind to collate test_data and train_data from separate files, then rbind to join datasets
+25:27 - cbind to collate test_data and train_data from separate files, then rbind to join datasets
 
-26:27 - clear previous dataframes from working memory
+30 - clear previous dataframes from working memory
 
-30:31 - ensure dplyr package is installed and libraries available
+33:34 - ensure dplyr package is installed and libraries available
 
-32:35 - use dplyr to create summary table with data averaged by activity and subject, with unnecessary 'activitycode' variable removed to qualify as tidy data.
+35:38 - use dplyr to create summary table with data averaged by activity and subject, with unnecessary 'activitycode' variable removed to qualify as tidy data.
